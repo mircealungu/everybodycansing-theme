@@ -11,7 +11,7 @@
     
     <!-- Default Colors -->
     <meta name="color:Background" content="#eee" />
-    <meta name="color:Main Text" content="#555" />
+    <meta name="color:Main Text" content="#333" />
     <meta name="color:Sidebar Text" content="#555" />
     <meta name="color:Link" content="#860000" />
     <meta name="color:Sidebar Link" content="#860000" />
@@ -30,6 +30,9 @@
     <meta name="if:Show Posts I Like" content="0" />
     <meta name="if:Enable Endless Scrolling" content="0" />
 
+    <meta name="text:Google Plus ID" content="" />
+    <meta name="text:Twitter Username" content="" />
+    <meta name="text:Good Reads Username" content="" />
     <meta name="text:Random Post Label" content="" />
     <meta name="text:Disqus Shortname" content="" />
         <meta name="text:Google Analytics UA" content="" />
@@ -620,6 +623,7 @@
 
         {block:TagPage}
             <h2>Posts tagged with <span>"{Tag}"</span></h2>
+            <br/><br/>
         {/block:TagPage}
 
         {block:SearchPage}
@@ -790,23 +794,45 @@
         
         <!-- Sidebar -->
         <div id="right-column">
+
             <div class="sidebar-box" id="about-box">
-                <img src="{PortraitURL-48}" alt="{Title}" id="avatar" />
-                <p class="about-title"><span>{lang:About}</span> {Title}</p>
-                <div class="blog-description">
-                    {Description}
-                </div> <!-- .blog-description -->
+                <p class="about-title">Navigation</p>
             </div> <!-- .sidebar-box -->
             
             <div class="sidebar-box">
                 <ul id="sidebar-nav">
+                    {block:IfRandomPostLabel}<li><a href="/random">{text:Random Post label}</a></li>{/block:IfRandomPostLabel}
                     {block:IfShowHomeLinkInNavigation}<li><a href="/">Home</a></li>{/block:IfShowHomeLinkInNavigation}
                     {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
                     {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
                     {block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
-                    {block:IfRandomPostLabel}<li><a href="/random">{text:Random Post label}</a></li>{/block:IfRandomPostLabel}
                     {block:IfShowArchiveLink}<li><a href="/archive">Archive</a></li>{/block:IfShowArchiveLink}
                     {block:IfShowRSSLinkInNavigation}<li><a href="{RSS}">RSS Feed</a></li>{/block:IfShowRSSLinkInNavigation}
+                </ul>
+            </div> <!-- .sidebar-box -->
+
+            <div class="sidebar-box">
+                <ul id="sidebar-nav">
+                    <p class="about-title">Me elsewhere</p>
+                    {block:IfTwitterUsername}
+                    <a href="http://twitter.com/{text:Twitter Username}">
+                        <img width="36" src="http://static.tumblr.com/kejpget/d72mku1gm/twitter.png" /></a>
+                    {/block:IfTwitterUsername}
+
+                    {block:IfGoodReadsUsername}
+                    <a href="http://goodreads.com/{text:Good Reads Username}">
+                        <img width="32" src="http://static.tumblr.com/kejpget/p4Amku10c/goodreads.png" />
+                    </a>
+                    {/block:IfGoodReadsUsername}
+
+                    {block:IfGooglePlusID}
+                    <a href="http://plus.google.com/{text:GooglePlusID}">
+                        <img width="32" src="http://static.tumblr.com/kejpget/CB5mku0mi/google-plus-logo_normal.gif" />
+                    </a>
+                    {/block:IfGooglePlusID}
+
+
+
                 </ul>
             </div> <!-- .sidebar-box -->
 
