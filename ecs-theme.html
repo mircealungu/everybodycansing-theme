@@ -53,13 +53,13 @@
     body {
         background: {color:Background};
         color: {color:Main Text};
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: Verdana, Helvetica, Arial, sans-serif;
         font-size: 18px;
         text-align: center;
         }
 
     #thepage {
-        margin-left: 200px;
+        margin-left: 300px;
     }
     
     #wrap {
@@ -82,14 +82,14 @@
     #title {
         color: #ddd;
         float: left;
-        font-size: 30px;
-        font-weight: bold;
+        font-size: 36px;
         line-height: 61px;
         margin-bottom: 10px;
-        margin-left: 180px;
         text-shadow: -1px -1px #000;
         text-align: center;
+        font-family: Helvetica, Arial, sans-serif;
         {block:IfForceUppercase}text-transform: uppercase;{/block:IfForceUppercase}
+
         }
     
     #title a {
@@ -214,10 +214,11 @@
         text-align: center;
         {block:IfForceUppercase}text-transform: uppercase;{/block:IfForceUppercase}
         }
+
     .posttitle {
         padding-top: 20px;
         padding-bottom: 20px;
-        background: #dee9f4;
+        background: #ffffff; /*#dee9f4; */
         min-height: 25px;
         overflow: hidden;
         text-shadow: 1px 1px #fff;
@@ -259,7 +260,7 @@
         }
     
     .postmeta {
-        background: #dee9f4;
+        background: #eeeeee; /* #dee9f4; */
         color: #365c7f;
         min-height: 25px;
         overflow: hidden;
@@ -598,6 +599,24 @@
     /* Mircea's styles */
     img.center {   display: block;   margin-left: auto;   margin-right: auto; }
 
+
+    div.bookreviews .posttitle {
+         background-color: #ffffff;
+    }
+    div.bookreviews .posttitle a {
+         color: #333333;
+    }
+
+    div.essays .posttitle {
+        background-color: #dee9f4;
+    }
+
+    div.essays .posttitle a {
+        background-color: #dee9f4;
+        color: #003366;
+    }
+
+
     </style>
     
     <style type="text/css">{CustomCSS}</style>
@@ -652,7 +671,7 @@
             {/block:IfNotShowDateFlagOnNewDatesOnly}
 
             {block:Text}
-            <div class="post post-text">
+            <div class="post post-text {TagsAsClasses}">
                 <div class="posttitle">
                 {block:Title}<h3><a href="{Permalink}">{Title}</a></h3>{/block:Title}
                 </div>
